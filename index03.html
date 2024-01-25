@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <script>
+        var num1 = '10';
+        var num2 = 10;
+
+        console.log(num1 == num2); //값이 같냐
+        console.log(num1 ===num2); // 값과 타입까지 같냐
+
+        console.log(num1 != num2); // 값이 다르냐
+        console.log(num1 !==num2); // 값,타입까지 다르냐
+
+
+        var a;
+        var b = null;
+        console.log(a, b, a == b); //undefined와 null은 값비교시 true로 나옴
+        console.log(a, b, a === b);//타입은 다르므로 false
+
+        var c = false;
+        var d = ""; // false로 판별
+
+        console.log(c == d); //true로 나옴.
+        console.log(c === d); //false
+
+        //왠만하면 !==, === 세개짜리로 쓰는게 정확함.
+
+    </script>
+    
+</body>
+</html>
