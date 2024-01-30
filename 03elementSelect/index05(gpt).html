@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>좌석 예약 시스템</title>
+</head>
+
+<body>
+    <pre>
+1.예약버튼 클릭시 좌석이 최소 한개이상 체크되어있지 않다면 경고창을 띄우는코드를 작성.
+2. 체크된 값은 예약 확인란에 출력해주세요.
+3. 힌트 - 버튼클릭시 배열에 값을 저장하고, 화면에는 문자열로 만들어 출력.
+</pre>
+    좌석:
+    <input type="checkbox" id="1번">1
+    <input type="checkbox" id="2번">2
+    <input type="checkbox" id="3번">3
+    <input type="checkbox" id="4번">4
+    <input type="checkbox" id="5번">5
+    <input type="checkbox" id="6번">6
+    <input type="checkbox" id="7번">7
+    <input type="checkbox" id="8번">8
+    <input type="checkbox" id="9번">9
+    <input type="checkbox" id="10번">10
+
+    
+    <br>
+    <button onclick="reserveSeats()">예약</button>
+
+    <h3>예약 확인</h3>
+    <div id="reservationInfo"></div>
+
+    <script>
+        // 예약된 좌석을 저장할 배열
+        var reservedSeats = [];
+
+        // 예약 버튼 클릭 시 실행되는 함수
+        function reserveSeats() {
+            // 체크된 좌석 확인
+            reservedSeats = [];
+            var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+            checkboxes.forEach(function (checkbox) {
+                if (checkbox.checked) {
+                    reservedSeats.push(checkbox.id);
+                }
+            });
+
+            // 예약된 좌석이 없으면 경고창을 띄우고 함수 종료
+            if (reservedSeats.length === 0) {
+                alert('최소한 한 개의 좌석을 선택해주세요.');
+                return;
+            }
+
+            // 예약 확인란에 예약된 좌석 출력
+            document.getElementById('reservationInfo').innerHTML = '예약된 좌석: ' + reservedSeats.join(" ");
+        }
+    </script>
+
+</body>
+
+</html>
