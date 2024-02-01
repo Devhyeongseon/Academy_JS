@@ -1,35 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
+
     <!DOCTYPE html>
     <html lang="en">
+
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
-    
+
         <style>
-            .toggle li {    
+            .toggle li {
                 display: inline-block;
                 padding: 15px 20px 14px;
-                width: 25%; 
+                width: 25%;
                 text-align: center;
                 border: 1px solid #333;
                 cursor: pointer;
             }
-    
-            .toggle-menu {display: none;}
-            .active { display: block; animation: fadeIn 0.5s ease-in-out}
-    
+
+            .toggle-menu {
+                display: none;
+            }
+
+            .active {
+                display: block;
+                animation: fadeIn 0.5s ease-in-out
+            }
         </style>
-    
+
     </head>
+
     <body>
         <!--
         태그의 data-xx는 태그에 필요한 중요한 데이터를 저장하는 곳
@@ -41,7 +50,7 @@
                 <li data-id="#toggle2">메뉴2</li>
                 <li data-id="#toggle3">메뉴3</li>
             </ul>
-    
+
             <div>
                 <div class="toggle-menu active" id="toggle1">
                     토글메뉴1
@@ -53,13 +62,36 @@
                     토글메뉴3
                 </div>
             </div>
-    
+
         </section>
-        
+
         <script>
-            //1. ul에 이벤트 위임을 이용해서 클릭이벤트를 걸고 대상의 data-id를 얻습니다.
-            //2. 다른 대상의 toggle-menu의 active속성을 삭제
-            //3. data-id의 값에 알맞는 태그에 active를 추가하면 됩니다.
+            //1. ul에 이벤트 위임을 이용해서 클릭이벤트를 걸고 대상의 data-id를 얻는다.
+            var toggle = document.querySelector(".toggle");
+
+            toggle.onclick = function () {
+                if (event.target.tagName != "LI") return;
+
+                var info = event.target.dataset.id;
+                console.log(info);
+
+                var toggleMenus = document.querySelectorAll('.toggle-menu');
+                toggleMenus.forEach(function (menu) {
+                    menu.classList.remove('active');
+                });
+
+                var targetMenu = document.querySelector(info);
+                if (targetMenu) {
+                    targetMenu.classList.add('active');
+                }
+
+                
+
+            }
+
+
+            //2. 다른 대상의 toggle-menu의 active속성을 삭제한다.
+            //3. data-id의 값에 알맞는 태그에 active를 추가한다.
         </script>
 
 
@@ -67,9 +99,11 @@
 
 
 
-    
+
     </body>
+
     </html>
 
 </body>
+
 </html>
