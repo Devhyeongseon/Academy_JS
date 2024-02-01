@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+  
+        .box img {
+            width: 200px;
+        }
+
+        .box {
+            margin: 0 auto;
+            text-align: center;
+
+        }
+
+        .name {
+            text-align: center;
+        }
+
+        .RS{
+            margin: 0 auto;
+            text-align: center;
+        }
+        .RS img{
+            width: 500px;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <h2 class="name">다중이벤트 처리</h2>
+    <ul class="box">
+        <img src="img/1.jpg" alt="" >
+        <img src="img/2.jpg" alt="" >
+        <img src="img/3.jpg" alt="" >
+        <img src="img/4.jpg" alt="" >
+        
+    </ul>
+    <div class="RS">
+
+        <img src="img/1.jpg" alt="" class="result">
+    </div>
+
+
+    <script>
+
+        var box = document.querySelector(".box");
+        
+        var result = document.querySelector(".result");
+
+        box.onclick = function () {
+            //내가 한 방법          
+            result.setAttribute('src', event.target.src);
+            
+            
+            
+        }
+
+    </script>
+
+
+</body>
+
+</html>
