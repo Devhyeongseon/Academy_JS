@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h3>document의 자식 > form > input 이 지정되기때문에 document.name.name 으로 접근.</h3>
+
+    <form name="myForm">
+        이름:<input type="text" name="name">
+        나이:<input type="text" name="age">
+        <input type="submit" value="전송" id="btn">
+    </form>
+    
+
+    <script>
+        var btn = document.getElementById("btn");
+        btn.addEventListener("click", function(e){
+
+            e.preventDefault(); //고유이벤트 중지
+            validate();
+            
+        })
+
+        function validate() {
+            
+            // //input 에 접근
+            // console.log(document.myForm);
+            // console.log(document.myForm.name.value);
+            // console.log(document.myForm.age.value);
+
+            //js로 input의 유효성검사
+
+            var myForm = document.myForm;
+            if ( myForm.name.value.length < 3){
+                alert("이름은 3글자 이상 입니다.")
+                return;
+                myForm.name.focus(); //input에 포커스.
+            } else if ( myForm.age.value <= 0){
+                alert("나이는 0세 이상입니다.")
+                myForm.age.focus(); //input에 포커스.
+                return;
+            }
+
+            myForm.submit(); // 폼객체를 서브밋 합니다.
+
+        }
+
+        
+        //엔터이벤트
+        document.addEventListener("keypress", function() {
+
+            if( event.keyCode == 13) { //엔터를 의미
+                validate();
+            }
+
+        })
+    </script>
+</body>
+</html>
