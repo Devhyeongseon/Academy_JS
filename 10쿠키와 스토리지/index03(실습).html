@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        img {
+            width: 300px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h3>localStorage를 이용하여 마지막에 클릭한 2개의 정보를 불러오기</h3>
+
+    <div class="product">
+
+        <img src="img/1.jpg" alt="" onclick="recentClick (1)">
+        <img src="img/2.jpg" alt="" onclick="recentClick (2)">
+        <img src="img/3.jpg" alt="" onclick="recentClick (3)">
+        <img src="img/4.jpg" alt="" onclick="recentClick (4)">
+
+        <br>
+        <button type="button" id="btn">최신정보확인하기</button>
+    </div>
+
+    <script>
+
+        var btn = document.getElementById("btn");
+        var value = document.querySelector("product")
+        btn.onclick = function () {
+
+            window.open("popup2.html", "최근 관심목록", "width=300, height=300, left=200, top=200");
+
+
+        }
+
+        function recentClick(value) {
+            console.log(value);
+        }
+
+    </script>
+
+</body>
+
+</html>

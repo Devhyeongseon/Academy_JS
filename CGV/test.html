@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hover Effect</title>
+<style>
+  /* 초기에 숨겨진 상태 */
+  .container {
+    position: relative;
+    width: 320px;
+    height: 120px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+
+  .inner-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .trigger {
+    display: none;
+    width: 60px;
+    height: 60px;
+    background-color: #ccc;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hidden {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="inner-container">
+    <a href="#" class="trigger">링크 1</a>
+    <a href="#" class="trigger">링크 2</a>
+    <a href="#" class="trigger">링크 3</a>
+    <span class="hidden">다른 링크</span>
+  </div>
+</div>
+
+<script>
+  // JavaScript로 호버 이벤트 처리
+  const container = document.querySelector('.container');
+  const triggers = document.querySelectorAll('.trigger');
+  const hiddenLink = document.querySelector('.hidden');
+
+  container.addEventListener('mouseenter', function() {
+    hiddenLink.innerText = "장바구니"; // 호버 상태일 때 텍스트 변경
+    hiddenLink.style.display = 'inline'; // 보이도록 함
+  });
+
+  container.addEventListener('mouseleave', function() {
+    hiddenLink.style.display = 'none'; // 다시 숨김
+  });
+</script>
+
+</body>
+</html>
