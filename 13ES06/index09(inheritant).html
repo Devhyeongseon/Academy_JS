@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+        class Shape {
+            name = "사각형"
+            getName() {
+                name = "삼각형"
+                return this.name;
+            }
+        }
+
+        class Rect extends Shape {
+            //부모님껀 다내꺼
+
+            //오버라이드 가능(메서드 덮어쓰기 ㅇㅇ)
+            getName() {
+                return "오버라이드된 getName() 메서드"
+            }
+        }
+
+        let r = new Rect()
+        console.log(r.getName());
+
+
+
+    </script>
+    
+</body>
+</html>
